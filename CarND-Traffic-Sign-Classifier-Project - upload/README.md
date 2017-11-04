@@ -65,7 +65,33 @@ all files have been submitted, except for the dataset of german traffic sign dat
 - random select one image and its label, visual it, check file of 'signnames', and see whether the relationship is correct or not
 
 ## Step2: Design and Test a Model Architecture
-# Preprocessing
+### Preprocessing
 - shuffle the dataset to obtain a better value
 - firstly, i use process the gray and shape-norminlize process, however, in the step3:test, the download image's shape is not (32,32,3), and the image after gray is (XX, XX, 1) not suit for the LeNet() input type, so just leave it here and miss use it
-# 
+### Model Architecture
+- type of model used: use LeNet() as basic model architecture
+- the number of layers: 5 layers
+- the size of each layer: CNN()
+   - layer 1 CNN: Input = 32x32x1. Output = 28x28x6, Relu activation, max_pooling:Input = 28x28x6. Output = 14x14x6
+   - layer 2 CNN: nput = 14x14x6. Output = 10x10x16, Relu activation, max_pooling:Input = 10x10x16. Output = 5x5x6
+   - layer 3 Fully connected layer: Input = 400. Output = 120, rele activation
+   - layer 4 Fully connected layer: Input = 120. Output = 84, rele activation
+   - layer 5 Fully connected layer: Input = 84.  Output = 10, return logits
+### Model Training
+- optimizer: Adam
+- batch size: 128
+- epochs: 10
+- rate: 0.001
+after 10 epochs, the accuracy is 0.987
+
+## Step 3: Test a Model on New Images
+## Acquiring New Images
+- The submission includes 6 new German Traffic signs found on the web and the images are visualized
+- Resize: as the size of image is different, and the LeNet only accept size of (32, 32,3), so use cv2.resize function to make all images into right size
+## Performance on New Images
+- 5 images is recognized correct among 6 images, the correct accuracy is 83.33%
+## Model Certainty - Softmax Probabilities
+- i think, because the good quality, 5 images are correct recongized
+- the not correct image is NO. 23 Slippery road
+- the result show that TOP 1 image is NO.29 Slippery road, and then the correct NO. 23 with softmax value near 0.2.
+Discussion is made as to particular qualities of the images or traffic signs in the images that are of interest, such as whether they would be difficult for the model to classify.

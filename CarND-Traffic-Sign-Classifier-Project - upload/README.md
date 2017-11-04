@@ -56,3 +56,16 @@ Follow the instructions in the `Traffic_Sign_Classifier.ipynb` notebook and writ
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
 
+## Files Submitted
+all files have been submitted, except for the dataset of german traffic sign dataset (like train.p, test.p,etc)
+
+## Step1: Dataset Exploration
+- download dataset from web
+- load train/validation/test dataset, and check the shape or number of each dataset
+- random select one image and its label, visual it, check file of 'signnames', and see whether the relationship is correct or not
+
+## Step2: Design and Test a Model Architecture
+# Preprocessing
+- shuffle the dataset to obtain a better value
+- firstly, i use process the gray and shape-norminlize process, however, in the step3:test, the download image's shape is not (32,32,3), and the image after gray is (XX, XX, 1) not suit for the LeNet() input type, so just leave it here and miss use it
+# 

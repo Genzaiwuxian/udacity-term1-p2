@@ -77,6 +77,12 @@ all files have been submitted, except for the dataset of german traffic sign dat
    - layer 3 Fully connected layer: Input = 400. Output = 120, rele activation
    - layer 4 Fully connected layer: Input = 120. Output = 84, rele activation
    - layer 5 Fully connected layer: Input = 84.  Output = 10, return logits
+   
+   - the architecture is based on LeNet, bacasue it's do very well on image identification from 1998.
+   - in order to built it for our project, the image size should be adjust into (32, 32, 3) (size, and the gray scale issue)
+   - change the fully out put layers, casue our project have 43 classlifcations, and LeNet have 10
+   - in order to prevent our net from overfitting, the code shuffle the image and classes, training epoch is 10 and each epoch the loss is decreasing. using Relu
+   
 ### Model Training
 - optimizer: Adam
 - batch size: 128
